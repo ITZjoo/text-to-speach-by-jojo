@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to Speech with Elden Ring Background</title>
+  <style>
+    body {
+      background-image: url('https://images.alphacoders.com/135/1353166.png');
+      background-size: cover;
+      color: white;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      padding-top: 100px;
+    }
+    textarea {
+      width: 50%;
+      height: 100px;
+      margin: 20px 0;
+      font-size: 16px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    select {
+      padding: 10px;
+      font-size: 16px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      margin-bottom: 20px;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid white;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    button:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+  </style>
+</head>
+<body>
+
+<h1>Text to Speech</h1>
+<p>Enter text and select a language to hear the speech.</p>
+
+<textarea id="text" placeholder="Enter your text here..."></textarea><br>
+
+<select id="language">
+  <option value="en-US">English (US)</option>
+  <option value="id-ID">Indonesian</option>
+  <option value="ar-SA">Arabic</option>
+  <option value="ja-JP">Japanese</option>
+  <option value="zh-CN">Chinese (Simplified)</option>
+</select><br>
+
+<button onclick="speak()">Speak</button>
+
+<script>
+  function speak() {
+    const text = document.getElementById('text').value;
+    const language = document.getElementById('language').value;
+
+    const speech = new SpeechSynthesisUtterance();
+    speech.text = text;
+    speech.lang = language;
+
+    window.speechSynthesis.speak(speech);
+  }
+</script>
+</body>
+</html>
